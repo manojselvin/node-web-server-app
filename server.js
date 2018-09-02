@@ -19,7 +19,7 @@ app.use((req, res, next) => {
             console.log(`Unable to write to file. Error - ${err}`);
         }
     });
-    next()
+    next();
 });
 
 // app.use((req, res, next) => {
@@ -46,6 +46,17 @@ app.get('/', (req, res) => {
 app.get('/about', (req, res) => {
     res.render('about', {
         pageTitle: 'About Page'
+    });
+}); 
+
+app.get('/projects', (req, res) => {
+    res.render('projects', {
+        pageTitle: 'Projects Page',
+        projectsList: [
+            {projectId: 1, projectName: 'Node app'}, 
+            {projectId: 2, projectName: 'Php app'}, 
+            {projectId: 3, projectName: 'Ruby app'}
+        ]
     });
 }); 
 
